@@ -1,0 +1,10 @@
+notebooks/.gitkeep
+src/data/.gitkeep
+src/features/.gitkeep
+src/models/.gitkeep
+src/utils/.gitkeep
+configs/.gitkeep
+outputs/figures/.gitkeep
+outputs/submissions/.gitkeep
+outputs/metrics/.gitkeep
+report/.gitkeep
