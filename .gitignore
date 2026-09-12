@@ -1,4 +1,4 @@
-# Kaggle / 本地数据，不提交
+# Local Kaggle datasets
 data/
 
 # Python
@@ -11,13 +11,13 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# 编辑器、系统文件
+# Editor and system files
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# 模型或大型中间文件
+# Models and large intermediate files
 *.pkl
 *.joblib
 *.pt

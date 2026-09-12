@@ -1,0 +1,859 @@
+{
+  "core": {
+    "train_rows": 150000,
+    "test_rows": 50000,
+    "missing_train": 0,
+    "missing_test": 0,
+    "exact_duplicates_train": 641,
+    "feature_duplicates_train": 21974,
+    "feature_groups_with_conflicting_rent": 17900,
+    "exact_duplicates_test": 7764,
+    "rent_min": 300,
+    "rent_max": 7600,
+    "rent_median": 2700.0,
+    "rent_under_500": 12,
+    "rent_over_6000": 24,
+    "negative_flat_age": 1,
+    "train_date_span": [
+      "2021-01",
+      "2025-03"
+    ],
+    "test_date_span": [
+      "2025-03",
+      "2026-07"
+    ],
+    "flat_types": [
+      "1-room",
+      "2-room",
+      "3-room",
+      "4-room",
+      "5-room",
+      "executive"
+    ]
+  },
+  "versions": {
+    "python": "3.13.12",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4"
+  },
+  "sha256": {
+    "auxiliary\\sg-coe-prices.csv": "e32fccd39da32780b6b7f35d069c813ed3edb0c110ea60761656bcee58d501a5",
+    "auxiliary\\sg-hdb-block.csv": "e6ccc60c1f901f8f476eb6fe14c07ef5941d2afd06a081a1e4c00f717da27f83",
+    "auxiliary\\sg-mrt-stations.csv": "899460b39fb251bd6883fffc9e6a772081f8e5217a657550afc3c49cfdcd3227",
+    "auxiliary\\sg-schools.csv": "118c7ce8d96bbc934bd53655e73e6d0848c27853a625394ecc6a67a5af54f192",
+    "auxiliary\\sg-shopping-malls.csv": "00e05b0176ac412695fc4ce1fc5a5338a1993593ffaffe26156dc2ea04ddf2c8",
+    "auxiliary\\sg-stock-prices.csv": "c52fef9f33cfcb11285e2b9546124e02f32488e563af44e9fb3a505d10e2edff",
+    "example-submission.csv": "ab751676b2bfc6121ac3543075d4f2c8978a6d73a14a3442a1bb7bdbf7867678",
+    "test.csv": "dfc407406d957bbf7c2f005e5d9852b1bfc6546cd4186f07e6824d8e03e64cfc",
+    "train.csv": "6d7a417de72112361f8353659ba6fe44a442b07465b488aff1b03f7ec1ea3ba6"
+  },
+  "shared_months": {
+    "2025-03": {
+      "train": 3032,
+      "test": 380
+    }
+  },
+  "test_rows_with_seen_features": 114,
+  "unseen_categories": {
+    "TOWN": {
+      "values": [],
+      "rows": 0
+    },
+    "STREET": {
+      "values": [],
+      "rows": 0
+    },
+    "FLAT_TYPE": {
+      "values": [],
+      "rows": 0
+    },
+    "FLAT_MODEL": {
+      "values": [],
+      "rows": 0
+    }
+  },
+  "numeric_ranges": {
+    "train": {
+      "RENT_APPROVAL_YEAR": {
+        "min": 2021.0,
+        "median": 2023.0,
+        "max": 2025.0
+      },
+      "RENT_APPROVAL_MONTH": {
+        "min": 1.0,
+        "median": 6.0,
+        "max": 12.0
+      },
+      "FLOOR_AREA_SQM": {
+        "min": 31.0,
+        "median": 92.0,
+        "max": 215.0
+      },
+      "LEASE_COMMENCE_DATE": {
+        "min": 1966.0,
+        "median": 1988.0,
+        "max": 2022.0
+      },
+      "FLAT_AGE": {
+        "min": -1.0,
+        "median": 34.0,
+        "max": 59.0
+      },
+      "MONTHLY_RENT": {
+        "min": 300.0,
+        "median": 2700.0,
+        "max": 7600.0
+      }
+    },
+    "test": {
+      "RENT_APPROVAL_YEAR": {
+        "min": 2025.0,
+        "median": 2025.0,
+        "max": 2026.0
+      },
+      "RENT_APPROVAL_MONTH": {
+        "min": 1.0,
+        "median": 6.0,
+        "max": 12.0
+      },
+      "FLOOR_AREA_SQM": {
+        "min": 31.0,
+        "median": 92.0,
+        "max": 215.0
+      },
+      "LEASE_COMMENCE_DATE": {
+        "min": 1966.0,
+        "median": 1988.0,
+        "max": 2022.0
+      },
+      "FLAT_AGE": {
+        "min": 3.0,
+        "median": 37.0,
+        "max": 59.0
+      }
+    }
+  },
+  "submission": {
+    "rows": 50000,
+    "ids_equal_test_row_order": true
+  },
+  "auxiliary": {
+    "sg-coe-prices": {
+      "rows": 539,
+      "missing_by_column": {
+        "YEAR": 0,
+        "CATEGORY": 0,
+        "MONTH": 0,
+        "ROUND": 0,
+        "QUOTA_PREMIUM": 0,
+        "PREVAILING_QUOTA_PREMIUM": 0,
+        "QUOTA": 0,
+        "BIDS_RECEIVED": 0
+      },
+      "exact_duplicate_excess": 0,
+      "placeholder_by_column": {
+        "YEAR": 0,
+        "CATEGORY": 0,
+        "MONTH": 0,
+        "ROUND": 0,
+        "QUOTA_PREMIUM": 0,
+        "PREVAILING_QUOTA_PREMIUM": 0,
+        "QUOTA": 0,
+        "BIDS_RECEIVED": 0
+      }
+    },
+    "sg-hdb-block": {
+      "rows": 9464,
+      "missing_by_column": {
+        "TOWN": 0,
+        "BLOCK": 0,
+        "STREET": 0,
+        "POSTAL_CODE": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0,
+        "MAX_FLOOR": 0,
+        "YEAR_COMPLETED": 0,
+        "SUBZONE": 0,
+        "PLANNING_AREA": 0,
+        "REGION": 0
+      },
+      "exact_duplicate_excess": 0,
+      "placeholder_by_column": {
+        "TOWN": 0,
+        "BLOCK": 0,
+        "STREET": 0,
+        "POSTAL_CODE": 285,
+        "LATITUDE": 0,
+        "LONGITUDE": 0,
+        "MAX_FLOOR": 0,
+        "YEAR_COMPLETED": 0,
+        "SUBZONE": 0,
+        "PLANNING_AREA": 0,
+        "REGION": 0
+      },
+      "invalid_coordinates": 0,
+      "coordinate_ranges": {
+        "LATITUDE": {
+          "min": 1.27038,
+          "max": 1.457071
+        },
+        "LONGITUDE": {
+          "min": 103.685228,
+          "max": 103.987805
+        }
+      }
+    },
+    "sg-mrt-stations": {
+      "rows": 243,
+      "missing_by_column": {
+        "CODE": 0,
+        "NAME": 0,
+        "STATUS": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0,
+        "SUBZONE": 0,
+        "PLANNING_AREA": 0,
+        "REGION": 0
+      },
+      "exact_duplicate_excess": 0,
+      "placeholder_by_column": {
+        "CODE": 0,
+        "NAME": 0,
+        "STATUS": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0,
+        "SUBZONE": 0,
+        "PLANNING_AREA": 0,
+        "REGION": 0
+      },
+      "invalid_coordinates": 0,
+      "coordinate_ranges": {
+        "LATITUDE": {
+          "min": 1.265278,
+          "max": 1.449025
+        },
+        "LONGITUDE": {
+          "min": 103.636806,
+          "max": 104.003056
+        }
+      }
+    },
+    "sg-schools": {
+      "rows": 337,
+      "missing_by_column": {
+        "NAME": 0,
+        "URL": 0,
+        "STREET": 0,
+        "POSTAL_CODE": 0,
+        "MRT_STATIONS": 0,
+        "BUS_LINES": 0,
+        "PLANNING_AREA": 0,
+        "REGION": 0,
+        "TYPE_CODE": 0,
+        "NATRUE_CODE": 0,
+        "SESSION_CODE": 0,
+        "MAINLEVEL_CODE": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0
+      },
+      "exact_duplicate_excess": 0,
+      "placeholder_by_column": {
+        "NAME": 0,
+        "URL": 0,
+        "STREET": 0,
+        "POSTAL_CODE": 0,
+        "MRT_STATIONS": 4,
+        "BUS_LINES": 3,
+        "PLANNING_AREA": 0,
+        "REGION": 0,
+        "TYPE_CODE": 0,
+        "NATRUE_CODE": 0,
+        "SESSION_CODE": 0,
+        "MAINLEVEL_CODE": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0
+      },
+      "invalid_coordinates": 0,
+      "coordinate_ranges": {
+        "LATITUDE": {
+          "min": 1.27495823622634,
+          "max": 1.45660782030102
+        },
+        "LONGITUDE": {
+          "min": 103.687310264575,
+          "max": 103.962807212116
+        }
+      }
+    },
+    "sg-shopping-malls": {
+      "rows": 113,
+      "missing_by_column": {
+        "NAME": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0
+      },
+      "exact_duplicate_excess": 0,
+      "placeholder_by_column": {
+        "NAME": 0,
+        "LATITUDE": 0,
+        "LONGITUDE": 0
+      },
+      "invalid_coordinates": 0,
+      "coordinate_ranges": {
+        "LATITUDE": {
+          "min": 1.26429316783973,
+          "max": 1.44819535371132
+        },
+        "LONGITUDE": {
+          "min": 103.697357496541,
+          "max": 103.98907755021
+        }
+      }
+    },
+    "sg-stock-prices": {
+      "rows": 91642,
+      "missing_by_column": {
+        "NAME": 0,
+        "SYMBOL": 0,
+        "DATE": 0,
+        "OPEN": 85,
+        "HIGH": 85,
+        "LOW": 85,
+        "CLOSE": 85,
+        "ADJUSTED_CLOSE": 85,
+        "VOLUME": 85
+      },
+      "exact_duplicate_excess": 0,
+      "placeholder_by_column": {
+        "NAME": 0,
+        "SYMBOL": 0,
+        "DATE": 0,
+        "OPEN": 0,
+        "HIGH": 0,
+        "LOW": 0,
+        "CLOSE": 0,
+        "ADJUSTED_CLOSE": 0,
+        "VOLUME": 0
+      }
+    }
+  },
+  "hdb_duplicate_key_excess": 0,
+  "hdb_invalid_numeric_fields": {
+    "MAX_FLOOR": 11,
+    "YEAR_COMPLETED": 11
+  },
+  "hdb_train_unmatched_rows": 0,
+  "consistency_train": {
+    "invalid_block_format": 0,
+    "unexpected_flat_type": 0,
+    "invalid_completion_or_floor_rows": 159,
+    "approval_before_known_completion": 0,
+    "lease_before_known_completion": 422,
+    "blocks_with_multiple_lease_years": 0
+  },
+  "negative_age_context_train": [
+    {
+      "TOWN": "bedok",
+      "BLOCK": "153B",
+      "STREET": "bedok south road",
+      "RENT_APPROVAL_DATE": "2021-11",
+      "LEASE_COMMENCE_DATE": 2022,
+      "YEAR_COMPLETED": 2021,
+      "FLAT_AGE": -1
+    }
+  ],
+  "hdb_test_unmatched_rows": 0,
+  "consistency_test": {
+    "invalid_block_format": 0,
+    "unexpected_flat_type": 0,
+    "invalid_completion_or_floor_rows": 0,
+    "approval_before_known_completion": 0,
+    "lease_before_known_completion": 152,
+    "blocks_with_multiple_lease_years": 0
+  },
+  "negative_age_context_test": [],
+  "mrt_status": {
+    "open": 231,
+    "planned": 12
+  },
+  "stock_numeric_checks": {
+    "nonpositive_close": 0,
+    "negative_volume": 0,
+    "inconsistent_ohlc_rows": 72
+  },
+  "macro_coverage": {
+    "stock": {
+      "month_span": [
+        "2021-01",
+        "2026-07"
+      ],
+      "duplicate_key_excess": 0,
+      "missing_test_months": [],
+      "coverage_by_series": {
+        "0799.HK": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "1792.HK": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "2588.HK": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "5E2.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "9658.HK": {
+          "start": "2022-12",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "9CI.SI": {
+          "start": "2021-09",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "A17U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "AIY.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "ANTA": {
+          "start": "2025-05",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03",
+            "2025-04"
+          ]
+        },
+        "AP4.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "BGIN": {
+          "start": "2025-10",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09"
+          ]
+        },
+        "BLIV": {
+          "start": "2025-04",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03"
+          ]
+        },
+        "BN4.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "BTDR": {
+          "start": "2021-07",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "BTM.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "BUOU.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "C07.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "C09.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "C38U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "C52.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "C6L.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "CJLU.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "D05.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "E5H.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "EGG": {
+          "start": "2025-06",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05"
+          ]
+        },
+        "EUDA": {
+          "start": "2021-12",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "F34.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "FLEX": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "FUFU": {
+          "start": "2021-12",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "G13.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "GCL": {
+          "start": "2022-04",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "GDTC": {
+          "start": "2023-04",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "GFAI": {
+          "start": "2021-09",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "GNS": {
+          "start": "2022-04",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "GRAB": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "H02.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "H15.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "HMN.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "K71U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "KARO": {
+          "start": "2021-04",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "KEN": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "KLIC": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "LITB": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "M44U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "ME8U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "MNDR": {
+          "start": "2024-04",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "MNY": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "N2IU.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "NS8U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "O39.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "OMH": {
+          "start": "2023-03",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "ORKT": {
+          "start": "2024-07",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "OV8.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "P15.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "PMEC": {
+          "start": "2023-10",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "POAS": {
+          "start": "2025-11",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10"
+          ]
+        },
+        "RYDE": {
+          "start": "2024-03",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "S08.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "S58.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "S59.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "S63.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "S68.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "SE": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "SMJF": {
+          "start": "2025-12",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11"
+          ]
+        },
+        "SPPL": {
+          "start": "2023-09",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "SWICH.AS": {
+          "start": "2026-02",
+          "end": "2026-07",
+          "missing_test_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01"
+          ]
+        },
+        "T82U.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "U06.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "U11.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "U14.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "U96.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "V03.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "VC2.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "WBUY": {
+          "start": "2023-10",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "WVE": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "Z25.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        },
+        "Z74.SI": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        }
+      }
+    },
+    "coe": {
+      "month_span": [
+        "2021-01",
+        "2026-08"
+      ],
+      "duplicate_key_excess": 0,
+      "missing_test_months": [],
+      "coverage_by_series": {
+        "a": {
+          "start": "2021-01",
+          "end": "2026-08",
+          "missing_test_months": []
+        },
+        "b": {
+          "start": "2021-01",
+          "end": "2026-08",
+          "missing_test_months": []
+        },
+        "c": {
+          "start": "2021-01",
+          "end": "2026-08",
+          "missing_test_months": []
+        },
+        "e": {
+          "start": "2021-01",
+          "end": "2026-07",
+          "missing_test_months": []
+        }
+      }
+    }
+  }
+}
